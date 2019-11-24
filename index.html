@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MENU</title>
+    <style>
+        select {
+            margin: 0 auto;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        #infoArea {
+            margin: 0 auto;
+            margin-top: 10px;
+            padding-top: 40px;
+            width: 500px;
+            height: 130px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <select name="" id="js_class" onchange="changeValue()"></select>
+
+        <div id="infoArea">
+            <div id="cate"></div>
+            <div id="name"></div>
+            <div id="com"></div>
+        </div>
+    </div>
+
+</body>
+<script>
+    const menu = [{
+            cate: "pizza",
+            name: "피자",
+            com: "피자는 고르곤졸라핏자"
+        },
+        {
+            cate: "pasta",
+            name: "파스타",
+            com: "감바스에 파스타 만들어 먹고 싶다"
+        },
+        {
+            cate: "chicken",
+            name: "치킨",
+            com: "오늘 저녁은 치킨이닭"
+        }
+    ];
+
+    const valueSetting = () => {
+        const selectBox = document.getElementById("js_class");
+
+        menu.map(m => {
+            const option = document.createElement("option");
+
+            option.text = m.cate;
+            selectBox.appendChild(option);
+        });
+    };
+
+    const changeValue = () => {
+
+        const selectBox = document.getElementById("js_class");
+
+        const currentValue = selectBox.options[selectBox.selectedIndex].value;
+
+        menu.map(m => {
+            if (m.cate === currentValue) {
+
+                const name = document.getElementById("name");
+                const com = document.getElementById("com");
+
+
+                name.innerText = m.name;
+                com.innerText = m.com;
+            }
+        });
+    };
+
+    function init() {
+        valueSetting();
+    }
+
+    init();
+</script>
+
+</html>
