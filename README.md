@@ -7,4 +7,4 @@
 
 - [x] selectBox
 - [x] setting value in selectBox
-- [x] onchange => infoView
+- [x] onchange => info view
